@@ -3,7 +3,6 @@ vim.g.encoding = "utf-8"
 
 -- number
 vim.wo.number = true
-vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.wo.colorcolumn = "120"
 

@@ -5,23 +5,29 @@ vim.g.maplocalleader = " "
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
-map('n', '<C-n>', ':NvimTreeToggle<CR>', opt)
+map('i', 'jj', '<esc>', opt)
 
+-- nvim tree
+map('n', '<C-n>', ':NvimTreeToggle<CR>', opt)
+map('n', '<leader>rt', ':NvimTreeFindFile<CR>', opt) -- reveal in tree
+
+-- buffer
 map('n', 'gt', ':BufferLineCycleNext<CR>', opt)
 map('n', '<tab>', ':BufferLineCycleNext<CR>', opt)
 map('n', 'gT', ':BufferLineCyclePrev<CR>', opt)
 map('n', '<S-tab>', ':BufferLineCyclePrev<CR>', opt)
+map('n', '<leader>q', '<cmd>bd<CR>', opt)
+map('n', '<leader>w', '<cmd>w<CR>', opt)
+map('n', '<leader>s', '<cmd>w<CR>', opt)
 
+-- editor
+map('n', '<leader>aq', '<cmd>q<CR>', opt)
+
+-- telescope
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opt)
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opt)
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opt)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opt)
-
-map('i', 'jj', '<esc>', opt)
-
--- close buffer
-map('n', '<leader>q', '<cmd>bd<CR>', opt)
-map('n', '<leader>w', '<cmd>w<CR>', opt)
 
 local M = {}
 
@@ -30,7 +36,6 @@ M.maplsp = function(mapbuf)
   mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-  -- TODO: add more bindings
 end
 
 M.cmp = function(cmp)
