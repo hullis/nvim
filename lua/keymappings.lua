@@ -29,6 +29,7 @@ M.maplsp = function(mapbuf)
   mapbuf('n', '<leader>rs', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
   mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
+  mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   -- TODO: add more bindings
 end
 

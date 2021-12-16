@@ -33,8 +33,7 @@ lsp_installer.on_server_ready(function(server)
   server:setup(opts)
 end)
 
--- TODO: add auto completion
-local lsplinkd = require('lspkind')
+-- local lsplinkd = require('lspkind')
 local cmp = require('cmp')
 
 cmp.setup {
