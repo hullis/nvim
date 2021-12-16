@@ -1,3 +1,13 @@
+-- pre require settings
+vim.g.nvim_tree_show_icons = {
+  files = 1,
+  foldrs = 0,
+  folder_arrows = 0,
+  git = 0,
+}
+
+vim.g.nvim_tree_quit_on_open = 1
+
 require("packer").startup(function()
   -- package manager Packer
   -- https://github.com/wbthomason/packer.nvim
@@ -37,11 +47,11 @@ require("packer").startup(function()
     'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'
   }
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path'     -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
+  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'rafamadriz/friendly-snippets'
   use 'onsails/lspkind-nvim'
@@ -53,11 +63,8 @@ require("packer").startup(function()
       { 'nvim-lua/plenary.nvim' }
     }
   }
-
-  -- TODO: add statusline plugin
  end)
 
--- TODO: move these to separate files
 require("nvim-tree").setup {
   auto_close = true,
   git = {
@@ -92,9 +99,7 @@ require('nvim-treesitter.configs').setup {
       node_decremental = '<BS>',
       scope_incremental = '<tab>',
     }
-  }, -- indent = {
-  --  enable = true,
-  -- }
+  },
 }
 
 vim.wo.foldmethod = 'expr'
@@ -118,7 +123,12 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {
+      {
+        'filename',
+        path = 1
+      }
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}

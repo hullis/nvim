@@ -36,6 +36,10 @@ M.maplsp = function(mapbuf)
   mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
+  -- search symbols in current file
+  mapbuf('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opt)
+  -- search symbols in workspace
+  mapbuf('n', 'gw', '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>', opt)
 end
 
 M.cmp = function(cmp)

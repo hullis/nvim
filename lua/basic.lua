@@ -24,7 +24,7 @@ vim.o.smartcase = true
 
 -- workbench
 vim.o.hlsearch = true
-vim.o.cmdheight = 2
+vim.o.cmdheight = 1
 
 -- wrap
 vim.o.wrap = false
