@@ -1,6 +1,6 @@
 # nvim config
 
-![]('./img/screenshot.png')
+![](./img/screenshot.png)
 
 ## Usage
 
