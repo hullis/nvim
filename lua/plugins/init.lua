@@ -1,11 +1,20 @@
 -- pre require settings
 vim.g.nvim_tree_show_icons = {
-  files = 1,
-  foldrs = 0,
-  folder_arrows = 0,
+  files = 0,
+  folders = 1,
+  folder_arrows = 1,
   git = 0,
 }
-
+vim.g.nvim_tree_icons = {
+  folder = {
+    default = 'F',
+    open = 'F',
+    empty = 'E',
+    empty_open = 'E',
+    arrow_open = ".",
+    arrow_closed = '>'
+  }
+}
 vim.g.nvim_tree_quit_on_open = 1
 
 require("packer").startup(function()
@@ -78,10 +87,9 @@ require("nvim-tree").setup {
   git = {
     enable = true
   },
-  icon = false
 }
 
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true 
 require('bufferline').setup {
   options = {
     buffer_close_icon = 'x',
