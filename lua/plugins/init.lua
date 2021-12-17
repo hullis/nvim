@@ -63,6 +63,14 @@ require("packer").startup(function()
       { 'nvim-lua/plenary.nvim' }
     }
   }
+  
+  -- git blame
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
  end)
 
 require("nvim-tree").setup {
@@ -144,3 +152,14 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+
+require('gitsigns').setup {
+  current_line_blame = true,
+  current_line_blame_opts = {
+    virt_text = true,
+    delay = 1000,
+  }
+}
+
+-- change gitlens color
+vim.cmd[[highlight link GitSignsCurrentLineBlame Visual]]
