@@ -4,7 +4,6 @@ vim.g.encoding = "utf-8"
 -- number
 vim.wo.number = true
 vim.wo.cursorline = true
-vim.wo.colorcolumn = "120"
 
 -- tab
 vim.o.tabstop = 2

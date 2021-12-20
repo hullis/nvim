@@ -21,6 +21,7 @@ end
 lsp_installer.on_server_ready(function(server)
   local opts = servers[server.name] or {}
 
+  -- add keymappings
   opts.on_attach = function(_, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     require('keymappings').maplsp(buf_set_keymap)
@@ -33,9 +34,7 @@ lsp_installer.on_server_ready(function(server)
   server:setup(opts)
 end)
 
--- local lsplinkd = require('lspkind')
 local cmp = require('cmp')
-
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -48,5 +47,26 @@ cmp.setup {
     { name = 'path' },
   }),
   mapping = require('keymappings').cmp(cmp)
+}
+
+local saga = require('lspsaga')
+saga.init_lsp_saga {
+  code_action_keys = {
+    open = 'o',
+    quit = 'q',
+    vsplit = 's',
+    split = 'i'
+  },
+  finder_action_keys = {
+    open = 'o',
+    quit = '<C-c>',
+  },
+  rename_action_keys = {
+    quit = '<C-c>',
+    exec = '<CR>',
+  },
+  definition_preview_icon = '🌰 ',
+  finder_definition_icon = '🌰 ',
+  finder_reference_icon = '🐹 ',
 }
 

@@ -32,14 +32,13 @@ map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opt)
 local M = {}
 
 M.maplsp = function(mapbuf)
-  mapbuf('n', '<leader>rs', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
-  mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
+  mapbuf('n', '<leader>rs', '<cmd>lua require("lspsaga.rename").rename()<CR>', opt)
+  mapbuf('n', 'gd', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>', opt)
+  mapbuf('n', 'gh', '<cmd>lua require("lspsaga.provider").preview_definition()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-  -- search symbols in current file
   mapbuf('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opt)
-  -- search symbols in workspace
   mapbuf('n', 'gw', '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>', opt)
+  mapbuf('n', '<leader>fm', '<cmd>lua vim.lsp.buf.formatting()<cr>', opt)
 end
 
 M.cmp = function(cmp)

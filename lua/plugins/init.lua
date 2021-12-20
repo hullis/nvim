@@ -55,6 +55,11 @@ require("packer").startup(function()
   use {
     'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'
   }
+
+  use {
+    'tami5/lspsaga.nvim'
+  }
+
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
