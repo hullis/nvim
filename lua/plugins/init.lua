@@ -22,10 +22,9 @@ require("packer").startup(function()
   -- https://github.com/wbthomason/packer.nvim
   use "wbthomason/packer.nvim"
 
-  -- dracula theme
-  -- https://github.com/Mofiqul/dracula.nvim
-  use "Mofiqul/dracula.nvim"
-  -- vim.cmd[[colorscheme dracula]] -- enable the plugin
+  -- atom one dark theme
+  -- https://github.com/navarasu/onedark.nvim
+  use "navarasu/onedark.nvim"
 
   -- nvim tree
   -- https://github.com/kyazdani42/nvim-tree.lua
@@ -176,3 +175,6 @@ require('gitsigns').setup {
 
 -- change gitlens color
 vim.cmd[[highlight link GitSignsCurrentLineBlame Comment]]
+
+-- change color scheme
+require('onedark').load()
