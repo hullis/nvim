@@ -25,7 +25,7 @@ require("packer").startup(function()
   -- dracula theme
   -- https://github.com/Mofiqul/dracula.nvim
   use "Mofiqul/dracula.nvim"
-  vim.cmd[[colorscheme dracula]] -- enable the plugin
+  -- vim.cmd[[colorscheme dracula]] -- enable the plugin
 
   -- nvim tree
   -- https://github.com/kyazdani42/nvim-tree.lua
