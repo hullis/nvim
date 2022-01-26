@@ -22,9 +22,16 @@ require("packer").startup(function()
   -- https://github.com/wbthomason/packer.nvim
   use "wbthomason/packer.nvim"
 
+  -- fzf
+  -- https://github.com/junegunn/fzf.vim
+  use "junegunn/fzf"
+  use "junegunn/fzf.vim"
+
   -- atom one dark theme
   -- https://github.com/navarasu/onedark.nvim
-  use "navarasu/onedark.nvim"
+  -- use "navarasu/onedark.nvim"
+  -- use 'monsonjeremy/onedark.nvim'
+  use 'navarasu/onedark.nvim'
 
   -- nvim tree
   -- https://github.com/kyazdani42/nvim-tree.lua
@@ -54,18 +61,15 @@ require("packer").startup(function()
   use {
     'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'
   }
-
   use {
     'tami5/lspsaga.nvim'
   }
-
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
   use 'rafamadriz/friendly-snippets'
   use 'onsails/lspkind-nvim'
 
@@ -176,5 +180,5 @@ require('gitsigns').setup {
 -- change gitlens color
 vim.cmd[[highlight link GitSignsCurrentLineBlame Comment]]
 
--- change color scheme
+-- enable atom one dark theme
 require('onedark').load()
